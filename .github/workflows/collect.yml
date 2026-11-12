@@ -1,0 +1,51 @@
+name: collect
+
+on:
+  schedule:
+    # UTC 기준. 00:30 KST(전날 확정값) / 12:30 KST(오전 운항 반영)
+    - cron: "30 15 * * *"
+    - cron: "30 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect
+        env:
+          TZ: Asia/Seoul
+          DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+          KMA_ASOS_SERVICE_KEY: ${{ secrets.KMA_ASOS_SERVICE_KEY }}
+        run: python src/collect_all.py
+        continue-on-error: true
+        id: collect
+
+      - name: Check
+        run: python src/check.py --days 7
+
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "data: collect $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+          git pull --rebase
+          git push
+
+      - name: Fail if collection failed
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

@@ -1,0 +1,20 @@
+# 비밀값 — 절대 커밋하지 않음 (API 키는 로컬 .env와 GitHub Secrets에만)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS / 에디터
+.DS_Store
+.vscode/
+.idea/
+
+# 주의: data/ 폴더는 GitHub Actions가 수집 결과를 커밋하므로 무시하지 않음
+# 단, 스케줄 원본 스냅샷은 실행마다 약 1.6MB(하루 2회 × 5주 ≈ 110MB)라 레포에 올리지 않음 → 결과는 data/schedule.csv
+data/raw/schedule/

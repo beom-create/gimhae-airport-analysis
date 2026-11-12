@@ -1,0 +1,53 @@
+{
+ "_meta": {
+  "name": "flight_depart_D+6",
+  "endpoint": "https://apis.data.go.kr/B551178/flight-status/depart",
+  "params": {
+   "pageNo": 1,
+   "type": "json",
+   "dataType": "JSON",
+   "searchday": "20261118",
+   "airport_code": "PUS",
+   "numOfRows": 1
+  },
+  "http_status": 200,
+  "called_at_kst": "2026-11-12T18:38:45+09:00"
+ },
+ "response": {
+  "response": {
+   "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+   },
+   "body": {
+    "numOfRows": 1,
+    "pageNo": 1,
+    "totalCount": 158,
+    "items": {
+     "item": [
+      {
+       "airline": "대한항공",
+       "arrAirport": "제주",
+       "arrAirportEng": "JEJU",
+       "codeshare": "N",
+       "depAirport": "부산/김해",
+       "depAirportEng": "GIMHAE",
+       "estimateddatetime": "202611180630",
+       "fid": "0000000000000013502685",
+       "flightid": "KE1505",
+       "io": "O",
+       "line": "국내",
+       "masterflightid": null,
+       "rmkKor": null,
+       "scheduledatetime": "202611180630",
+       "searchday": "20261118",
+       "arrvAirportCode": "CJU",
+       "depAirportCode": "PUS",
+       "fgenTime": "20261112175700"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

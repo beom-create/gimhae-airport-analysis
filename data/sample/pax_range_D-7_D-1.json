@@ -1,0 +1,42 @@
+{
+ "_meta": {
+  "name": "pax_range_D-7_D-1",
+  "endpoint": "https://apis.data.go.kr/B551178/daily-expect-passenger/info",
+  "params": {
+   "pageNo": 1,
+   "type": "json",
+   "dataType": "JSON",
+   "schStDate": "20261105",
+   "schEdDate": "20261111",
+   "schAirport": "PUS",
+   "numOfRows": 1
+  },
+  "http_status": 200,
+  "called_at_kst": "2026-11-12T18:38:52+09:00"
+ },
+ "response": {
+  "response": {
+   "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+   },
+   "body": {
+    "numOfRows": 1,
+    "pageNo": 1,
+    "totalCount": 440,
+    "items": {
+     "item": [
+      {
+       "ARP": "PUS",
+       "AOD": "D",
+       "SDT": "20261111",
+       "HH": "22",
+       "PCT": "991",
+       "TOF": "I"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,498 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "description": "전국공항 시간대별 탑승승객 수 조회 데이터는 한국공항공사가 제공하는 공공데이터로, 김포·김해·제주 등 주요 공항을 포함한 전국 15개 공항의 일별·시간대별 탑승객 집계 정보를 담고 있습니다. 각 항목은 공항코드, 날짜, 시간 구간(10시, 11시 등), 탑승 승객 수로 구성되어 있어 특정 시간대의 혼잡도를 정량적으로 파악할 수 있습니다.  \\n\\n이 데이터는 “김포공항 탑승승객”, “김해공항 승객 수”, “제주공항 승객 수” 등 개별 공항별 수요 분석은 물론, “전국공항 혼잡도”와 “시간대별 승객 수”를 기반으로 한 교통수요 예측, 항공편 스케줄 최적화, 공항 운영 효율화 등에 활용됩니다. 또한, 지역별 관광 흐름과 연계한 정책 입안·관광 마케팅 전략 수립에도 유용합니다.  \\n\\n데이터는 CSV 형식으로 월별 업데이트(전국공항 시간대별 탑승승객 수 정보)되며, API 제공을 통해 실시간 조회가 가능합니다. 이용자는 공공데이터포털에서 무료로 다운로드받아 시각화·통계 분석 도구와 연동해 다양한 인사이트를 도출할 수 있습니다. 데이터 활용 시 출처 표기와 개인정보 비식별화 원칙을 준수하면 됩니다.",
+  "version": "1.0.0",
+  "title": "한국공항공사_전국공항 시간대별 탑승승객 수 조회_GW"
+ },
+ "host": "apis.data.go.kr/B551178/daily-expect-passenger",
+ "basePath": "",
+ "schemes": [
+  "https",
+  "http"
+ ],
+ "paths": {
+  "/info": {
+   "get": {
+    "responses": {
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "결과코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "결과메세지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "item",
+             "properties": {
+              "ARP": {
+               "type": "string",
+               "description": "공항명(영문)",
+               "properties": {}
+              },
+              "AOD": {
+               "type": "string",
+               "description": "출/도착코드",
+               "properties": {}
+              },
+              "SDT": {
+               "type": "string",
+               "description": "운항일자",
+               "properties": {}
+              },
+              "HH": {
+               "type": "string",
+               "description": "시간대",
+               "properties": {}
+              },
+              "PCT": {
+               "type": "string",
+               "description": "시간대별 탑승 승객 수",
+               "properties": {}
+              },
+              "TOF": {
+               "type": "string",
+               "description": "국내/국제",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "numOfRows": {
+           "type": "string",
+           "description": "한 페이지 결과 수",
+           "properties": {}
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체 결과 수",
+           "properties": {}
+          },
+          "pageNo": {
+           "type": "string",
+           "description": "페이지번호",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "전국공항 시간대별 탑승승객 수 정보",
+    "description": "공항별 1시간 단위 탑승 승객수 정보입니다.",
+    "operationId": "info",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json",
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "pageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "numOfRows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "schStDate",
+     "description": "검색 시작 기간(샘플 : 20260101)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "schEdDate",
+     "description": "검색 종료 기간(샘플 : 20260131)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "schAirport",
+     "description": "공항코드 (샘플 :GMP, PUS, CJU ...)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "schTof",
+     "description": "항공편종류(국내 : D, 국제 : I)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "schAOD",
+     "description": "출/도착(출발 : D, 도착 : A)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "type",
+     "description": "응답 형식(JSON & XML), 기본값 : XML (샘플 :xml)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  }
+ },
+ "definitions": {
+  "info_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "결과코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "결과메세지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "item",
+         "properties": {
+          "ARP": {
+           "type": "string",
+           "description": "공항명(영문)"
+          },
+          "AOD": {
+           "type": "string",
+           "description": "출/도착코드"
+          },
+          "SDT": {
+           "type": "string",
+           "description": "운항일자"
+          },
+          "HH": {
+           "type": "string",
+           "description": "시간대"
+          },
+          "PCT": {
+           "type": "string",
+           "description": "시간대별 탑승 승객 수"
+          },
+          "TOF": {
+           "type": "string",
+           "description": "국내/국제"
+          }
+         }
+        }
+       }
+      },
+      "numOfRows": {
+       "type": "string",
+       "description": "한 페이지 결과 수"
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체 결과 수"
+      },
+      "pageNo": {
+       "type": "string",
+       "description": "페이지번호"
+      }
+     }
+    }
+   }
+  }
+ },
+ "swaggerOprtinVOs": [
+  {
+   "oprtinUrl": "https://apis.airport.co.kr/public/airport/daily-expect-passenger/all-airport",
+   "oprtinNm": "전국공항 시간대별 탑승승객 수 정보",
+   "oprtinDc": "공항별 1시간 단위 탑승 승객수 정보입니다.",
+   "gwSvcNm": "info",
+   "operationId": "info",
+   "publicDataTyDetailCode": "PRDE02",
+   "reqList": [
+    {
+     "paramtrNm": "serviceKey",
+     "paramtrDc": "공공데이터포털에서 받은 인증키",
+     "paramtrBassValue": "-",
+     "paramtrTy": "string",
+     "paramtrDivision": "필수",
+     "ck": true
+    },
+    {
+     "paramtrNm": "pageNo",
+     "paramtrDc": "페이지번호",
+     "paramtrBassValue": "1",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "numOfRows",
+     "paramtrDc": "한 페이지 결과 수",
+     "paramtrBassValue": "10",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "schStDate",
+     "paramtrDc": "검색 시작 기간(샘플 : 20260101)",
+     "paramtrBassValue": "",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "schEdDate",
+     "paramtrDc": "검색 종료 기간(샘플 : 20260131)",
+     "paramtrBassValue": "",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "schAirport",
+     "paramtrDc": "공항코드 (샘플 :GMP, PUS, CJU ...)",
+     "paramtrBassValue": "",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "schTof",
+     "paramtrDc": "항공편종류(국내 : D, 국제 : I)",
+     "paramtrBassValue": "",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "schAOD",
+     "paramtrDc": "출/도착(출발 : D, 도착 : A)",
+     "paramtrBassValue": "",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "type",
+     "paramtrDc": "응답 형식(JSON & XML), 기본값 : XML (샘플 :xml)",
+     "paramtrBassValue": "",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    }
+   ],
+   "resList": [
+    {
+     "paramtrNm": "header",
+     "paramtrDc": "header",
+     "arrayYn": "N",
+     "paramtrDefNm": "#/definitions/oper-1-header",
+     "subDefNm": "oper-1-header",
+     "paramtrTy": "object",
+     "paramtrDivision": "필수",
+     "ck": true,
+     "subParam": [
+      {
+       "paramtrNm": "resultCode",
+       "paramtrDc": "결과코드",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      },
+      {
+       "paramtrNm": "resultMsg",
+       "paramtrDc": "결과메세지",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      }
+     ]
+    },
+    {
+     "paramtrNm": "body",
+     "paramtrDc": "body",
+     "arrayYn": "N",
+     "paramtrDefNm": "#/definitions/oper-1-body",
+     "subDefNm": "oper-1-body",
+     "paramtrTy": "object",
+     "paramtrDivision": "필수",
+     "ck": true,
+     "subParam": [
+      {
+       "paramtrNm": "items",
+       "paramtrDc": "items",
+       "arrayYn": "N",
+       "paramtrDefNm": "#/definitions/oper-1-items",
+       "subDefNm": "oper-1-items",
+       "paramtrTy": "object",
+       "paramtrDivision": "필수",
+       "ck": true,
+       "subParam": [
+        {
+         "paramtrNm": "item",
+         "paramtrDc": "item",
+         "arrayYn": "N",
+         "paramtrDefNm": "#/definitions/oper-1-item",
+         "subDefNm": "oper-1-item",
+         "paramtrTy": "object",
+         "paramtrDivision": "필수",
+         "ck": true,
+         "subParam": [
+          {
+           "paramtrNm": "ARP",
+           "paramtrDc": "공항명(영문)",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "옵션",
+           "ck": true
+          },
+          {
+           "paramtrNm": "AOD",
+           "paramtrDc": "출/도착코드",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "옵션",
+           "ck": true
+          },
+          {
+           "paramtrNm": "SDT",
+           "paramtrDc": "운항일자",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "옵션",
+           "ck": true
+          },
+          {
+           "paramtrNm": "HH",
+           "paramtrDc": "시간대",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "옵션",
+           "ck": true
+          },
+          {
+           "paramtrNm": "PCT",
+           "paramtrDc": "시간대별 탑승 승객 수",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "옵션",
+           "ck": true
+          },
+          {
+           "paramtrNm": "TOF",
+           "paramtrDc": "국내/국제",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "옵션",
+           "ck": true
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "paramtrNm": "numOfRows",
+       "paramtrDc": "한 페이지 결과 수",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "옵션",
+       "ck": true
+      },
+      {
+       "paramtrNm": "totalCount",
+       "paramtrDc": "전체 결과 수",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "옵션",
+       "ck": true
+      },
+      {
+       "paramtrNm": "pageNo",
+       "paramtrDc": "페이지번호",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "옵션",
+       "ck": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

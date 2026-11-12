@@ -1,0 +1,317 @@
+한국공항공사 항공기 운항 스케줄 정보 GW
+OpenAPI 활용가이드
+개정 이력
+버 전 | 변경일 | 변경 사유 | 변경 내용 | 작성자 | 승인
+제정 | 2026-08-11 | 제정 | 제정 | 김민섭 | 김민섭
+ |  |  |  |  | 
+ |  |  |  |  | 
+ |  |  |  |  | 
+ |  |  |  |  | 
+
+목 차
+1. 서비스 목록3
+2. 서비스 명세3
+2.1. 항공기 운항 스케줄 정보3
+가. 서비스 개요3
+나. 오퍼레이션 목록4
+서비스 목록
+순번 | 서비스 ID | 서비스명(영문) | 서비스명(국문)
+1 | flight-schedule | Korea Airports Corporation Aircraft Operation Schedule Information | 항공기 운항 스케줄 정보
+
+서비스 명세
+항공기 운항 스케줄 정보
+서비스 개요
+서비스정보 | 서비스 ID | flight-schedule
+ | 서비스명(국문) | 항공기 운항 스케줄 정보
+ | 서비스명(영문) | Korea Airports Corporation Aircraft Operation Schedule Information
+ | 서비스 설명 | 한국공항공사가 관할하는 공항의 실시간 운항 스케줄 정보를 제공하며, 국제선 및 국내선 운항 스케줄과 면세점용 여객기 운항 스케줄 조회 기능을 포함한다. 출도착 공항, 항공편명, 운항기간, 요일별 취항여부, 출도착 시간 등의 정보를 제공한다.
+서비스제공자정보 | 기관명 | 한국공항공사 | 담당자명 | 김민섭
+ | 담당자 연락처 | 02-2660-4803 | 담당자 e-Mail | 
+서비스보안 | 서비스 인증/권한 | [O] 서비스 Key [ ] 인증서 (GPKI)[ ] Basic (ID/PW) [ ] 없음 | [ ] WS-Security
+ | 메시지 레벨 암호화 | [ ] 전자서명 [ ] 암호화 [O] 없음 | 
+ | 전송 레벨 암호화 | [ ] SSL [O] 없음
+적용기술수준 | 인터페이스 표준 | [ ] SOAP 1.2(RPC-Encoded, Document Literal, Document Literal Wrapped)[O] REST (GET, POST, PUT, DELETE)[ ] RSS 1.0 [ ] RSS 1.0 [ ] Atom 1.0 [ ] 기타
+ | 교환 데이터 표준 | [O] XML [O] JSON [ ] MIME [ ] MTOM
+서비스URL | 개발환경 | https://apis.data.go.kr/B551178/flight-schedule/inthttps://apis.data.go.kr/B551178/flight-schedule/taxfree-inthttps://apis.data.go.kr/B551178/flight-schedule/taxfree-domhttps://apis.data.go.kr/B551178/flight-schedule/dom
+ | 운영환경 | https://apis.data.go.kr/B551178/flight-schedule/inthttps://apis.data.go.kr/B551178/flight-schedule/taxfree-inthttps://apis.data.go.kr/B551178/flight-schedule/taxfree-domhttps://apis.data.go.kr/B551178/flight-schedule/dom
+서비스WADL | 개발환경 | https://apis.data.go.kr/B551178/flight-schedule/serviceKey={ServiceKey}
+ | 운영환경 | https://apis.data.go.kr/B551178/flight-schedule/serviceKey={ServiceKey}
+서비스배포정보 | 서비스 버전 | 1.0
+ | 서비스 시작일 | 2026-06-05 | 배포 일자 | 2026-06-05
+ | 서비스 이력 | N/A
+메시지 교환 유형 | [O] Request-Response [ ] Publish-Subscribe[ ] Fire-and-Forgot [ ] Notification
+메시지 로깅 수준 | 성공 | [O] Header [ ] Body | 실패 | [O] Header [O] Body
+사용 제약 사항 (비고) | N/A
+데이터 갱신주기 | N/A
+
+오퍼레이션 목록
+일련번호 | 서비스명(국문) | 오퍼레이션명(영문) | 오퍼레이션명(국문) | 메시지명(영문)
+1 | 항공기 운항 스케줄 정보 | International Flight Schedule | 국제선 운항 스케줄 | N/A
+2 | 항공기 운항 스케줄 정보 | International Passenger Flight Schedule Information Inquiry for Duty-Free Shops | 면세점용 여객기 국제선 운항 항공기 스케줄 정보 조회 | N/A
+3 | 항공기 운항 스케줄 정보 | Domestic Flight Schedule Inquiry for Duty-Free Shops | 국내선 항공기 스케줄 조회(면세점용) | N/A
+4 | 항공기 운항 스케줄 정보 | Domestic Flight Schedule | 국내선 운항스케줄 | N/A
+
+국제선 운항 스케줄 오퍼레이션 명세
+오퍼레이션정보 | 오퍼레이션 번호 | 1 | 오퍼레이션명(국문) | 국제선 운항 스케줄
+ | 오퍼레이션 유형 | 조회(목록) | 오퍼레이션명(영문) | International Flight Schedule
+ | 오퍼레이션 설명 | 국제선 공항간 운항스케줄 정보를 조회하며 항공사, 기준공항, 운항구간, 항공편명, 운항기간, 요일별 취항여부, 운항시간 및 비행목적 등을 제공한다.
+ | Call Back URL | https://apis.data.go.kr/B551178/flight-schedule/int
+ | 최대 메시지 사이즈 | N/A
+ | 평균 응답 시간 | N/A | 초당 최대 트랜잭션 | N/A
+호출메시지정보 | 메시지명(영문) | Request
+ | 메시지타입 | 1. 변수형2. 변수형
+ | 메시지설명 | 1. 서비스 인증키를 입력한다.2. 페이지번호 및 한 페이지 결과 수를 필요에 따라 입력한다.3. 검색일자, 출발/도착 도시코드, 항공편 코드 및 항공편 번호를 필요에 따라 입력한다.4. 응답 형식을 입력한다.
+ | 선행 오퍼레이션 | N/A
+응답메시지정보 | 메시지명(영문) | Response
+ | 메시지 타입 | 리스트형
+ | 메시지 설명 | 조회 조건에 해당하는 국제선 운항 스케줄 정보를 제공한다.
+HTTP Method | [O] REST (GET, POST, PUT, DELETE)
+
+요청 메시지 명세
+메시지명(영문)/END POINT URL | https://apis.data.go.kr/B551178/flight-schedule/int
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+serviceKey | 인증키 |  | 필수 | - | 공공데이터포털에서 받은 인증키
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+schDate | 검색일자 |  | 옵션 | 20251005 | 검색일자
+schDeptCityCode | 출발 도시 코드 |  | 옵션 | GMP | 출발 도시 코드
+schArrvCityCode | 도착 도시 코드 |  | 옵션 | HND | 도착 도시 코드
+schAirLine | 항공편 코드 |  | 옵션 | NH | 항공편 코드
+schFlightNum | 항공편 넘버 |  | 옵션 | NH862 | 항공편 넘버
+type | 응답 형식 |  | 옵션 | xml | 응답 형식(JSON & XML), 기본값: XML
+
+응답 메시지 명세
+메시지명(영문) | https://apis.data.go.kr/B551178/flight-schedule/int
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+resultCode | 결과코드 |  | 필수 | 00 | 결과코드
+resultMsg | 결과메시지 |  | 필수 | NORMAL SERVICE. | 결과메시지
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+totalCount | 전체 결과 수 |  | 옵션 | 74243 | 전체 결과 수
+airlinehomepageUrl | 항공사 홈페이지 주소 |  | 옵션 |  | 항공사 홈페이지 주소
+airlineKorean | 항공사(국문) |  | 옵션 | 제주항공 | 항공사(국문)
+airlineEnglish | 항공사(영문) |  | 옵션 | JEJU AIR | 항공사(영문)
+airport | 기준공항 |  | 옵션 | 방콕/수완나품 | 기준공항
+airportCode | 출발공항코드 |  | 옵션 | BKK | 출발공항코드
+city | 운항구간 |  | 옵션 | 인천 | 운항구간
+cityCode | 도시코드 |  | 옵션 | ICN | 도시코드
+internationalEddate | 운항종료날짜 |  | 옵션 | 2022-10-29T00:00:00 | 운항종료날짜
+internationalIoType | 국제선 출입국 구분 |  | 옵션 | IN | 국제선 출입국 구분
+internationalNum | 항공편명 |  | 옵션 | 7C2203 | 항공편명
+internationalStdate | 운항시작날짜 |  | 옵션 | 2022-06-23T00:00:00 | 운항시작날짜
+internationalTime | 국제선 운항 시간 |  | 옵션 | 0000 | 국제선 운항 시간
+internationalSun | 일요일 |  | 옵션 | N | 일요일
+internationalMon | 월요일 |  | 옵션 | N | 월요일
+internationalTue | 화요일 |  | 옵션 | N | 화요일
+internationalWed | 수요일 |  | 옵션 | Y | 수요일
+internationalThu | 목요일 |  | 옵션 | Y | 목요일
+internationalFri | 금요일 |  | 옵션 | N | 금요일
+internationalSat | 토요일 |  | 옵션 | Y | 토요일
+flightPurpose | 비행목적 |  | 옵션 | 여객기 | 비행목적
+
+요청 / 응답 메시지 예제
+REST (URL)
+https://apis.data.go.kr/B551178/flight-schedule/int?serviceKey={ServiceKey}&pageNo=1&numOfRows=10&type=xml
+응답 메시지
+<response><script/><header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header><body><numOfRows>10</numOfRows><pageNo>1</pageNo><totalCount>74243</totalCount><items><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2022-10-29T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2203</internationalNum><internationalStdate>2022-06-23T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>N</internationalSun><internationalMon>N</internationalMon><internationalTue>N</internationalTue><internationalWed>Y</internationalWed><internationalThu>Y</internationalThu><internationalFri>N</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2025-10-25T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2503</internationalNum><internationalStdate>2025-09-30T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>Y</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>Y</internationalWed><internationalThu>Y</internationalThu><internationalFri>Y</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2025-08-31T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2503</internationalNum><internationalStdate>2025-08-01T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>Y</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>Y</internationalWed><internationalThu>Y</internationalThu><internationalFri>Y</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2025-07-31T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2503</internationalNum><internationalStdate>2025-03-30T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>Y</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>Y</internationalWed><internationalThu>Y</internationalThu><internationalFri>Y</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2023-10-28T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2203</internationalNum><internationalStdate>2023-03-26T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>Y</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>Y</internationalWed><internationalThu>Y</internationalThu><internationalFri>Y</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2022-10-29T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2203</internationalNum><internationalStdate>2022-05-29T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>Y</internationalSun><internationalMon>N</internationalMon><internationalTue>N</internationalTue><internationalWed>N</internationalWed><internationalThu>N</internationalThu><internationalFri>N</internationalFri><internationalSat>N</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>티웨이항공</airlineKorean><airlineEnglish>T'WAY AIR CO.LTD</airlineEnglish><airport>클락필드/클라크필드</airport><airportCode>CRK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2022-10-29T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>TW147</internationalNum><internationalStdate>2022-08-01T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>N</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>Y</internationalWed><internationalThu>N</internationalThu><internationalFri>Y</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>티웨이항공</airlineKorean><airlineEnglish>T'WAY AIR CO.LTD</airlineEnglish><airport>클락필드/클라크필드</airport><airportCode>CRK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2022-07-31T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>TW147</internationalNum><internationalStdate>2022-07-22T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>N</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>Y</internationalWed><internationalThu>N</internationalThu><internationalFri>Y</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2022-10-29T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2203</internationalNum><internationalStdate>2022-07-01T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>N</internationalSun><internationalMon>Y</internationalMon><internationalTue>Y</internationalTue><internationalWed>N</internationalWed><internationalThu>N</internationalThu><internationalFri>Y</internationalFri><internationalSat>N</internationalSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><airport>방콕/수완나품</airport><airportCode>BKK</airportCode><city>인천</city><cityCode>ICN</cityCode><internationalEddate>2022-10-29T00:00:00</internationalEddate><internationalIoType>IN</internationalIoType><internationalNum>7C2203</internationalNum><internationalStdate>2022-06-23T00:00:00</internationalStdate><internationalTime>0000</internationalTime><internationalSun>N</internationalSun><internationalMon>N</internationalMon><internationalTue>N</internationalTue><internationalWed>Y</internationalWed><internationalThu>Y</internationalThu><internationalFri>N</internationalFri><internationalSat>Y</internationalSat><flightPurpose>여객기</flightPurpose></item></items></body></response>
+
+(2) 면세점용 여객기 국제선 운항 항공기 스케줄 정보 조회 오퍼레이션 명세
+오퍼레이션정보 | 오퍼레이션 번호 | 2 | 오퍼레이션명(국문) | 면세점용 여객기 국제선 운항 항공기 스케줄 정보 조회
+ | 오퍼레이션 유형 | 조회(목록) | 오퍼레이션명(영문) | International Passenger Flight Schedule Information Inquiry for Duty-Free Shops
+ | 오퍼레이션 설명 | 면세품 구매시 항공기 탑승권과 실제 운항정보 조회를 하기 위하여 한국공항공사에서 운영하는 14개 공항의 국제선 운항 항공기 스케줄 정보를 제공한다.
+ | Call Back URL | https://apis.data.go.kr/B551178/flight-schedule/taxfree-int
+ | 최대 메시지 사이즈 | N/A
+ | 평균 응답 시간 | N/A | 초당 최대 트랜잭션 | N/A
+호출메시지정보 | 메시지명(영문) | Request
+ | 메시지타입 | 1. 변수형2. 변수형
+ | 메시지설명 | 1. 서비스 인증키를 입력한다.2. 페이지번호 및 한 페이지 결과 수를 입력한다.3. 편명UNIQ코드, 항공기 편명, 출도착 공항정보, 항공사 코드, 생성구분 및 생성시간을 필요에 따라 입력한다.4. 응답 형식을 입력한다.
+ | 선행 오퍼레이션 | N/A
+응답메시지정보 | 메시지명(영문) | Response
+ | 메시지 타입 | 리스트형
+ | 메시지 설명 | 조회 조건에 해당하는 면세점용 국제선 항공기 운항 스케줄 정보를 제공한다.
+HTTP Method | [O] REST (GET, POST, PUT, DELETE)
+
+요청 메시지 명세
+메시지명(영문)/END POINT URL | https://apis.data.go.kr/B551178/flight-schedule/taxfree-int
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+serviceKey | 인증키 |  | 필수 | - | 공공데이터포털에서 받은 인증키
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+fid | 편명UNIQ코드값 |  | 옵션 |  | 편명UNIQ코드값
+flightId | 항공기 편명 |  | 옵션 |  | 항공기 편명
+depCityCode | 출발공항 코드값 |  | 옵션 |  | 출발공항 코드값
+depCity | 출발공항(도시) |  | 옵션 |  | 출발공항(도시)
+arrvCityCode | 도착공항 코드값 |  | 옵션 |  | 도착공항 코드값
+arrvCity | 도착공항(도시) |  | 옵션 |  | 도착공항(도시)
+schAirLine | 항공사 코드값 |  | 옵션 |  | 항공사 코드값
+fgenType | 생성구분 |  | 옵션 |  | I(Insert): 신규, U(Update): 변경, D(Delete): 삭제
+fgenTime | 데이터 생성시간 |  | 옵션 |  | 데이터 생성시간(Year-Month-Day-Hour-Minute-Second) 요청값 이후의 값으로 데이터 조회
+type | 응답 형식 |  | 옵션 | xml | 응답 형식(JSON & XML), 기본값: XML
+
+응답 메시지 명세
+메시지명(영문) | https://apis.data.go.kr/B551178/flight-schedule/taxfree-int
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+resultCode | 결과코드 |  | 필수 | 00 | 결과코드
+resultMsg | 결과메시지 |  | 필수 | NORMAL SERVICE. | 결과메시지
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+totalCount | 전체 결과 수 |  | 옵션 | 10325 | 전체 결과 수
+fid | 편명UNIQ코드값 |  | 옵션 | 20241108643332 | 편명UNIQ코드값
+fgenType | 생성구분 |  | 옵션 | U | I(Insert): 신규, U(Update): 변경, D(Delete): 삭제
+fgentime | 데이터 생성시간 |  | 옵션 | 20241015170919 | 데이터 생성시간(Year-Month-Day-Hour-Minute-Second)
+flightid | 항공편명 |  | 옵션 | BX1443 | 항공편명
+st | 출발시간 |  | 옵션 | 1300 | 출발시간
+firstdate | 정기운항 시작일 |  | 옵션 | 20241108 | 정기운항 시작일
+lastdate | 정기운항 종료일 |  | 옵션 | 20241124 | 정기운항 종료일
+ynmon | 월요일 취항여부 |  | 옵션 | N | 월요일 취항여부(Y:취항, N:미취항)
+yntue | 화요일 취항여부 |  | 옵션 | N | 화요일 취항여부(Y:취항, N:미취항)
+ynwed | 수요일 취항여부 |  | 옵션 | N | 수요일 취항여부(Y:취항, N:미취항)
+ynthu | 목요일 취항여부 |  | 옵션 | N | 목요일 취항여부(Y:취항, N:미취항)
+ynfri | 금요일 취항여부 |  | 옵션 | Y | 금요일 취항여부(Y:취항, N:미취항)
+ynsat | 토요일 취항여부 |  | 옵션 | N | 토요일 취항여부(Y:취항, N:미취항)
+ynsun | 일요일 취항여부 |  | 옵션 | Y | 일요일 취항여부(Y:취항, N:미취항)
+airline | 항공사 국문명 |  | 옵션 | 에어부산 | 항공사 국문명
+airlinecode | 항공사코드(IATA) |  | 옵션 | BX | 항공사코드(IATA)
+depcitycode | 출발공항 코드값 |  | 옵션 | PUS | 출발공항 코드값
+depcity | 출발공항(도시) |  | 옵션 | 부산/김해 | 출발공항(도시)
+arrvcitycode | 도착공항 코드값 |  | 옵션 | FUK | 도착공항 코드값
+arrvcity | 도착공항(도시) |  | 옵션 | 후쿠오카 | 도착공항(도시)
+
+요청 / 응답 메시지 예제
+REST (URL)
+https://apis.data.go.kr/B551178/flight-schedule/taxfree-int?serviceKey={ServiceKey}&pageNo=1&numOfRows=10&type=xml
+응답 메시지
+<response><script/><header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header><body><numOfRows>10</numOfRows><pageNo>1</pageNo><totalCount>10325</totalCount><items><item><fid>20241108643332</fid><fgenType>U</fgenType><fgentime>20241015170919</fgentime><flightid>BX1443</flightid><st>1300</st><firstdate>20241108</firstdate><lastdate>20241124</lastdate><ynmon>N</ynmon><yntue>N</yntue><ynwed>N</ynwed><ynthu>N</ynthu><ynfri>Y</ynfri><ynsat>N</ynsat><ynsun>Y</ynsun><airline>에어부산</airline><airlinecode>BX</airlinecode><depcitycode>PUS</depcitycode><depcity>부산/김해</depcity><arrvcitycode>FUK</arrvcitycode><arrvcity>후쿠오카</arrvcity></item><item><fid>20241111643338</fid><fgenType>U</fgenType><fgentime>20241015170919</fgentime><flightid>BX1433</flightid><st>1955</st><firstdate>20241111</firstdate><lastdate>20241125</lastdate><ynmon>Y</ynmon><yntue>N</yntue><ynwed>N</ynwed><ynthu>N</ynthu><ynfri>N</ynfri><ynsat>N</ynsat><ynsun>N</ynsun><airline>에어부산</airline><airlinecode>BX</airlinecode><depcitycode>FUK</depcitycode><depcity>후쿠오카</depcity><arrvcitycode>PUS</arrvcitycode><arrvcity>부산/김해</arrvcity></item><item><fid>20241108643336</fid><fgenType>U</fgenType><fgentime>20241015170919</fgentime><flightid>BX1433</flightid><st>1600</st><firstdate>20241108</firstdate><lastdate>20241124</lastdate><ynmon>N</ynmon><yntue>N</yntue><ynwed>N</ynwed><ynthu>N</ynthu><ynfri>Y</ynfri><ynsat>N</ynsat><ynsun>Y</ynsun><airline>에어부산</airline><airlinecode>BX</airlinecode><depcitycode>FUK</depcitycode><depcity>후쿠오카</depcity><arrvcitycode>PUS</arrvcitycode><arrvcity>부산/김해</arrvcity></item><item><fid>20241111643334</fid><fgenType>U</fgenType><fgentime>20241015170919</fgentime><flightid>BX1443</flightid><st>1650</st><firstdate>20241111</firstdate><lastdate>20241125</lastdate><ynmon>Y</ynmon><yntue>N</yntue><ynwed>N</ynwed><ynthu>N</ynthu><ynfri>N</ynfri><ynsat>N</ynsat><ynsun>N</ynsun><airline>에어부산</airline><airlinecode>BX</airlinecode><depcitycode>PUS</depcitycode><depcity>부산/김해</depcity><arrvcitycode>FUK</arrvcitycode><arrvcity>후쿠오카</arrvcity></item><item><fid>20241027644273</fid><fgenType>I</fgenType><fgentime>20241021155709</fgentime><flightid>TW155</flightid><st>2110</st><firstdate>20241027</firstdate><lastdate>20250329</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlinecode>TW</airlinecode><depcitycode>CJJ</depcitycode><depcity>청주</depcity><arrvcitycode>CXR</arrvcitycode><arrvcity>나트랑</arrvcity></item><item><fid>20241028644274</fid><fgenType>I</fgenType><fgentime>20241021155709</fgentime><flightid>TW156</flightid><st>0855</st><firstdate>20241028</firstdate><lastdate>20250330</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlinecode>TW</airlinecode><depcitycode>CXR</depcitycode><depcity>나트랑</depcity><arrvcitycode>CJJ</arrvcitycode><arrvcity>청주</arrvcity></item><item><fid>20241027644275</fid><fgenType>I</fgenType><fgentime>20241021155714</fgentime><flightid>TW181</flightid><st>2050</st><firstdate>20241027</firstdate><lastdate>20250329</lastdate><ynmon>N</ynmon><yntue>N</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>N</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlinecode>TW</airlinecode><depcitycode>CJJ</depcitycode><depcity>청주</depcity><arrvcitycode>DAD</arrvcitycode><arrvcity>다낭</arrvcity></item><item><fid>20241028644276</fid><fgenType>I</fgenType><fgentime>20241021155714</fgentime><flightid>TW182</flightid><st>0745</st><firstdate>20241028</firstdate><lastdate>20250330</lastdate><ynmon>Y</ynmon><yntue>N</yntue><ynwed>N</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>N</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlinecode>TW</airlinecode><depcitycode>DAD</depcitycode><depcity>다낭</depcity><arrvcitycode>CJJ</arrvcitycode><arrvcity>청주</arrvcity></item><item><fid>20241027644280</fid><fgenType>I</fgenType><fgentime>20241021155714</fgentime><flightid>TW250</flightid><st>1430</st><firstdate>20241027</firstdate><lastdate>20250329</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlinecode>TW</airlinecode><depcitycode>KIX</depcitycode><depcity>오사카/간사이</depcity><arrvcitycode>CJJ</arrvcitycode><arrvcity>청주</arrvcity></item><item><fid>20241027644279</fid><fgenType>I</fgenType><fgentime>20241021155714</fgentime><flightid>TW249</flightid><st>0955</st><firstdate>20241027</firstdate><lastdate>20250329</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlinecode>TW</airlinecode><depcitycode>CJJ</depcitycode><depcity>청주</depcity><arrvcitycode>KIX</arrvcitycode><arrvcity>오사카/간사이</arrvcity></item></items></body></response>
+
+(3) 국내선 항공기 스케줄 조회(면세점용) 오퍼레이션 명세
+오퍼레이션정보 | 오퍼레이션 번호 | 3 | 오퍼레이션명(국문) | 국내선 항공기 스케줄 조회(면세점용)
+ | 오퍼레이션 유형 | 조회(목록) | 오퍼레이션명(영문) | Domestic Flight Schedule Inquiry for Duty-Free Shops
+ | 오퍼레이션 설명 | 항공기 탑승권 확인을 위하여 한국공항공사에서 운영하는 14개 공항의 국내선 항공기 스케줄 정보를 제공한다.
+ | Call Back URL | https://apis.data.go.kr/B551178/flight-schedule/taxfree-dom
+ | 최대 메시지 사이즈 | N/A
+ | 평균 응답 시간 | N/A | 초당 최대 트랜잭션 | N/A
+호출메시지정보 | 메시지명(영문) | Request
+ | 메시지타입 | 1. 변수형2. 변수형
+ | 메시지설명 | 1. 서비스 인증키를 입력한다.2. 페이지번호 및 한 페이지 결과 수를 입력한다.3. 편명UNIQ코드, 항공기 편명, 출도착 공항정보, 항공사 코드, 생성구분 및 생성시간을 필요에 따라 입력한다.4. 응답 형식을 입력한다.
+ | 선행 오퍼레이션 | N/A
+응답메시지정보 | 메시지명(영문) | Response
+ | 메시지 타입 | 리스트형
+ | 메시지 설명 | 조회 조건에 해당하는 면세점용 국내선 항공기 스케줄 정보를 제공한다.
+HTTP Method | [O] REST (GET, POST, PUT, DELETE)
+
+요청 메시지 명세
+메시지명(영문)/END POINT URL | https://apis.data.go.kr/B551178/flight-schedule/taxfree-dom
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+serviceKey | 인증키 |  | 필수 | - | 공공데이터포털에서 받은 인증키
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+fid | 편명UNIQ코드값 |  | 옵션 |  | 편명UNIQ코드값
+flightId | 항공기 편명 |  | 옵션 |  | 항공기 편명
+depCityCode | 출발공항 코드값 |  | 옵션 |  | 출발공항 코드값
+depCity | 출발공항(도시) |  | 옵션 |  | 출발공항(도시)
+arrvCityCode | 도착공항 코드값 |  | 옵션 |  | 도착공항 코드값
+arrvCity | 도착공항(도시) |  | 옵션 |  | 도착공항(도시)
+schAirLine | 항공사 코드값 |  | 옵션 |  | 항공사 코드값
+fgenType | 생성구분 |  | 옵션 |  | I(Insert): 신규, U(Update): 변경, D(Delete): 삭제
+fgenTime | 데이터 생성시간 |  | 옵션 |  | 데이터 생성시간(Year-Month-Day-Hour-Minute-Second) 요청값 이후의 값으로 데이터 조회
+type | 응답 형식 |  | 옵션 | xml | 응답 형식(JSON & XML), 기본값: XML
+
+응답 메시지 명세
+메시지명(영문) | https://apis.data.go.kr/B551178/flight-schedule/taxfree-dom
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+ |  |  |  |  | 
+resultCode | 결과코드 |  | 필수 | 00 | 결과코드
+resultMsg | 결과메시지 |  | 필수 | NORMAL SERVICE. | 결과메시지
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+totalCount | 전체 결과 수 |  | 옵션 | 9317 | 전체 결과 수
+fid | 편명UNIQ코드값 |  | 옵션 | 2026070151256771 | 편명UNIQ코드값
+fgenType | 생성구분 |  | 옵션 | I | I(Insert): 신규, U(Update): 변경, D(Delete): 삭제
+fgentime | 데이터 생성시간 |  | 옵션 | 20260814060010 | 데이터 생성시간(Year-Month-Day-Hour-Minute-Second)
+flightid | 항공편명 |  | 옵션 | LJ659 | 항공편명
+st | 출발시간 |  | 옵션 | 0855 | 출발시간
+firstdate | 정기운항 시작일 |  | 옵션 | 20260701 | 정기운항 시작일
+lastdate | 정기운항 종료일 |  | 옵션 | 20261024 | 정기운항 종료일
+ynmon | 월요일 취항여부 |  | 옵션 | Y | 월요일 취항여부(Y:취항, N:미취항)
+yntue | 화요일 취항여부 |  | 옵션 | Y | 화요일 취항여부(Y:취항, N:미취항)
+ynwed | 수요일 취항여부 |  | 옵션 | Y | 수요일 취항여부(Y:취항, N:미취항)
+ynthu | 목요일 취항여부 |  | 옵션 | Y | 목요일 취항여부(Y:취항, N:미취항)
+ynfri | 금요일 취항여부 |  | 옵션 | Y | 금요일 취항여부(Y:취항, N:미취항)
+ynsat | 토요일 취항여부 |  | 옵션 | Y | 토요일 취항여부(Y:취항, N:미취항)
+ynsun | 일요일 취항여부 |  | 옵션 | Y | 일요일 취항여부(Y:취항, N:미취항)
+airline | 항공사 국문명 |  | 옵션 | 진에어 | 항공사 국문명
+airlineCode | 항공사코드(IATA) |  | 옵션 | LJ | 항공사코드(IATA)
+depcitycode | 출발공항 코드값 |  | 옵션 | GMP | 출발공항 코드값
+depcity | 출발공항(도시) |  | 옵션 | 서울/김포 | 출발공항(도시)
+arrvcitycode | 도착공항 코드값 |  | 옵션 | KPO | 도착공항 코드값
+arrvcity | 도착공항(도시) |  | 옵션 | 포항/포항경주 | 도착공항(도시)
+
+요청 / 응답 메시지 예제
+REST (URL)
+https://apis.data.go.kr/B551178/flight-schedule/taxfree-dom?serviceKey={ServiceKey}&pageNo=1&numOfRows=10&type=xml
+응답 메시지
+<response><script/><header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header><body><numOfRows>10</numOfRows><pageNo>1</pageNo><totalCount>9317</totalCount><items><item><fid>2026070151256771</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>LJ659</flightid><st>0855</st><firstdate>20260701</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>진에어</airline><airlineCode>LJ</airlineCode><depcitycode>GMP</depcitycode><depcity>서울/김포</depcity><arrvcitycode>KPO</arrvcitycode><arrvcity>포항/포항경주</arrvcity></item><item><fid>2026062951257264</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>TW904</flightid><st>1335</st><firstdate>20260629</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlineCode>TW</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KWJ</arrvcitycode><arrvcity>광주</arrvcity></item><item><fid>2026070651257091</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>TW906</flightid><st>1455</st><firstdate>20260706</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlineCode>TW</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KWJ</arrvcitycode><arrvcity>광주</arrvcity></item><item><fid>2026070651257090</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>TW902</flightid><st>1025</st><firstdate>20260706</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlineCode>TW</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KWJ</arrvcitycode><arrvcity>광주</arrvcity></item><item><fid>2026032951256137</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>TW908</flightid><st>1850</st><firstdate>20260329</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>티웨이항공</airline><airlineCode>TW</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KWJ</arrvcitycode><arrvcity>광주</arrvcity></item><item><fid>2026032951256331</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>LJ468</flightid><st>1550</st><firstdate>20260329</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>진에어</airline><airlineCode>LJ</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KUV</arrvcitycode><arrvcity>군산</arrvcity></item><item><fid>2026032951256189</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>LJ464</flightid><st>0920</st><firstdate>20260329</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>진에어</airline><airlineCode>LJ</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KUV</arrvcitycode><arrvcity>군산</arrvcity></item><item><fid>2026070151256814</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>LJ466</flightid><st>1420</st><firstdate>20260701</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>진에어</airline><airlineCode>LJ</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KUV</arrvcitycode><arrvcity>군산</arrvcity></item><item><fid>2026061951256802</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>LJ436</flightid><st>1215</st><firstdate>20260619</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>진에어</airline><airlineCode>LJ</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KPO</arrvcitycode><arrvcity>포항/포항경주</arrvcity></item><item><fid>2026070151256800</fid><fgenType>I</fgenType><fgentime>20260814060010</fgentime><flightid>LJ438</flightid><st>1805</st><firstdate>20260701</firstdate><lastdate>20261024</lastdate><ynmon>Y</ynmon><yntue>Y</yntue><ynwed>Y</ynwed><ynthu>Y</ynthu><ynfri>Y</ynfri><ynsat>Y</ynsat><ynsun>Y</ynsun><airline>진에어</airline><airlineCode>LJ</airlineCode><depcitycode>CJU</depcitycode><depcity>제주</depcity><arrvcitycode>KPO</arrvcitycode><arrvcity>포항/포항경주</arrvcity></item></items></body></response>
+
+(4) 국내선 운항스케줄 오퍼레이션 명세
+오퍼레이션정보 | 오퍼레이션 번호 | 4 | 오퍼레이션명(국문) | 국내선 운항스케줄
+ | 오퍼레이션 유형 | 조회(목록) | 오퍼레이션명(영문) | Domestic Flight Schedule
+ | 오퍼레이션 설명 | 국내선/국제선 공항간 운항스케줄 정보를 제공하며, 항공사, 출도착 공항, 항공편명, 출도착 시간, 운항기간, 요일별 취항여부 및 비행목적을 조회할 수 있다.
+ | Call Back URL | https://apis.data.go.kr/B551178/flight-schedule/dom
+ | 최대 메시지 사이즈 | N/A
+ | 평균 응답 시간 | N/A | 초당 최대 트랜잭션 | N/A
+호출메시지정보 | 메시지명(영문) | Request
+ | 메시지타입 | 1. 변수형2. 변수형
+ | 메시지설명 | 1. 서비스 인증키를 입력한다.2. 페이지번호 및 한 페이지 결과 수를 입력한다.3. 검색일자, 도시코드, 항공편 코드 및 항공편 번호를 필요에 따라 입력한다.4. 응답 형식을 입력한다.
+ | 선행 오퍼레이션 | N/A
+응답메시지정보 | 메시지명(영문) | Response
+ | 메시지 타입 | 리스트형
+ | 메시지 설명 | 조회 조건에 해당하는 국내선 운항 스케줄 정보를 제공한다.
+HTTP Method | [O] REST (GET, POST, PUT, DELETE)
+
+요청 메시지 명세
+메시지명(영문)/END POINT URL | https://apis.data.go.kr/B551178/flight-schedule/dom
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+serviceKey | 인증키 |  | 필수 | - | 공공데이터포털에서 받은 인증키
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+schDate | 검색일자 |  | 옵션 | 20260101 | 검색일자
+schDeptCityCode | 도착 도시 코드 |  | 옵션 | GMP | 도착 도시 코드
+schArrvCityCode | 출항 도시 코드 |  | 옵션 | PUS | 출항 도시 코드
+schAirLine | 항공편 코드 |  | 옵션 | AB | 항공편 코드
+schFlightNum | 항공편 넘버 |  | 옵션 | 100 | 항공편 넘버
+type | 응답 형식 |  | 옵션 | xml | 응답 형식(JSON & XML), 기본값: XML
+
+응답 메시지 명세
+메시지명(영문) | https://apis.data.go.kr/B551178/flight-schedule/dom
+항목명(영문) | 항목명(국문) | 항목크기 | 항목구분 | 샘플데이터 | 항목설명
+resultCode | 결과코드 |  | 필수 | 00 | 결과코드
+resultMsg | 결과메시지 |  | 필수 | NORMAL SERVICE. | 결과메시지
+numOfRows | 한 페이지 결과 수 |  | 옵션 | 10 | 한 페이지 결과 수
+pageNo | 페이지번호 |  | 옵션 | 1 | 페이지번호
+totalCount | 전체 결과 수 |  | 옵션 | 59891 | 전체 결과 수
+airlinehomepageUrl | 항공사 홈페이지 |  | 옵션 |  | 항공사 홈페이지
+airlineKorean | 항공사(국문) |  | 옵션 | 대한항공 | 항공사(국문)
+airlineEnglish | 항공사(영문) |  | 옵션 | KOREAN AIR | 항공사(영문)
+arrivalcity | 도착공항 |  | 옵션 | 대구 | 도착공항
+arrivalcityCode | 도착공항 코드 |  | 옵션 | TAE | 도착공항 코드
+domesticArrivalTime | 도착시간 |  | 옵션 | 0605 | 도착시간
+domesticEddate | 운항종료일자 |  | 옵션 | 2009-04-07T00:00:00 | 운항종료일자
+domesticNum | 항공편명 |  | 옵션 | KE1493 | 항공편명
+domesticStartTime | 출발시간 |  | 옵션 | 0515 | 출발시간
+domesticStdate | 운항시작일자 |  | 옵션 | 2009-04-07T00:00:00 | 운항시작일자
+startcity | 출발공항 |  | 옵션 | 인천 | 출발공항
+startcityCode | 출발 공항 코드 |  | 옵션 | ICN | 출발 공항 코드
+domesticSun | 일요일 |  | 옵션 | N | 일요일
+domesticMon | 월요일 |  | 옵션 | N | 월요일
+domesticTue | 화요일 |  | 옵션 | Y | 화요일
+domesticWed | 수요일 |  | 옵션 | N | 수요일
+domesticThu | 목요일 |  | 옵션 | N | 목요일
+domesticFri | 금요일 |  | 옵션 | N | 금요일
+domesticSat | 토요일 |  | 옵션 | N | 토요일
+flightPurpose | 비행목적 |  | 옵션 | 여객기 | 비행목적
+
+요청 / 응답 메시지 예제
+REST (URL)
+https://apis.data.go.kr/B551178/flight-schedule/dom?serviceKey={ServiceKey}&pageNo=1&numOfRows=10&type=xml
+응답 메시지
+<response><script/><header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header><body><numOfRows>10</numOfRows><pageNo>1</pageNo><totalCount>59891</totalCount><items><item><airlinehomepageUrl/><airlineKorean>대한항공</airlineKorean><airlineEnglish>KOREAN AIR</airlineEnglish><arrivalcity>대구</arrivalcity><arrivalcityCode>TAE</arrivalcityCode><domesticArrivalTime>0605</domesticArrivalTime><domesticEddate>2009-04-07T00:00:00</domesticEddate><domesticNum>KE1493</domesticNum><domesticStartTime>0515</domesticStartTime><domesticStdate>2009-04-07T00:00:00</domesticStdate><startcity>인천</startcity><startcityCode>ICN</startcityCode><domesticSun>N</domesticSun><domesticMon>N</domesticMon><domesticTue>Y</domesticTue><domesticWed>N</domesticWed><domesticThu>N</domesticThu><domesticFri>N</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0620</domesticArrivalTime><domesticEddate>2024-10-16T00:00:00</domesticEddate><domesticNum>7C309</domesticNum><domesticStartTime>0520</domesticStartTime><domesticStdate>2024-10-16T00:00:00</domesticStdate><startcity>무안</startcity><startcityCode>MWX</startcityCode><domesticSun>N</domesticSun><domesticMon>N</domesticMon><domesticTue>N</domesticTue><domesticWed>Y</domesticWed><domesticThu>N</domesticThu><domesticFri>N</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0655</domesticArrivalTime><domesticEddate>2019-10-24T00:00:00</domesticEddate><domesticNum>7C761</domesticNum><domesticStartTime>0555</domesticStartTime><domesticStdate>2019-10-21T00:00:00</domesticStdate><startcity>대구</startcity><startcityCode>TAE</startcityCode><domesticSun>N</domesticSun><domesticMon>Y</domesticMon><domesticTue>N</domesticTue><domesticWed>N</domesticWed><domesticThu>Y</domesticThu><domesticFri>N</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>이스타항공</airlineKorean><airlineEnglish>EASTAR JET</airlineEnglish><arrivalcity>서울/김포</arrivalcity><arrivalcityCode>GMP</arrivalcityCode><domesticArrivalTime>0630</domesticArrivalTime><domesticEddate>2010-09-17T00:00:00</domesticEddate><domesticNum>ZE262F</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2010-09-02T00:00:00</domesticStdate><startcity>인천</startcity><startcityCode>ICN</startcityCode><domesticSun>N</domesticSun><domesticMon>N</domesticMon><domesticTue>N</domesticTue><domesticWed>N</domesticWed><domesticThu>N</domesticThu><domesticFri>N</domesticFri><domesticSat>Y</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>에어부산</airlineKorean><airlineEnglish>AIR BUSAN</airlineEnglish><arrivalcity>울산</arrivalcity><arrivalcityCode>USN</arrivalcityCode><domesticArrivalTime>0700</domesticArrivalTime><domesticEddate>2019-10-26T00:00:00</domesticEddate><domesticNum>BX8891</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2019-03-31T00:00:00</domesticStdate><startcity>서울/김포</startcity><startcityCode>GMP</startcityCode><domesticSun>N</domesticSun><domesticMon>N</domesticMon><domesticTue>N</domesticTue><domesticWed>N</domesticWed><domesticThu>N</domesticThu><domesticFri>Y</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0710</domesticArrivalTime><domesticEddate>2021-04-22T00:00:00</domesticEddate><domesticNum>7C171</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2021-04-05T00:00:00</domesticStdate><startcity>서울/김포</startcity><startcityCode>GMP</startcityCode><domesticSun>Y</domesticSun><domesticMon>N</domesticMon><domesticTue>Y</domesticTue><domesticWed>Y</domesticWed><domesticThu>Y</domesticThu><domesticFri>Y</domesticFri><domesticSat>Y</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>에어서울</airlineKorean><airlineEnglish>AIR SEOUL</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0700</domesticArrivalTime><domesticEddate>2021-10-30T00:00:00</domesticEddate><domesticNum>RS901</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2021-03-28T00:00:00</domesticStdate><startcity>서울/김포</startcity><startcityCode>GMP</startcityCode><domesticSun>Y</domesticSun><domesticMon>Y</domesticMon><domesticTue>Y</domesticTue><domesticWed>Y</domesticWed><domesticThu>Y</domesticThu><domesticFri>Y</domesticFri><domesticSat>Y</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0700</domesticArrivalTime><domesticEddate>2021-04-22T00:00:00</domesticEddate><domesticNum>7C171</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2021-04-05T00:00:00</domesticStdate><startcity>서울/김포</startcity><startcityCode>GMP</startcityCode><domesticSun>N</domesticSun><domesticMon>Y</domesticMon><domesticTue>N</domesticTue><domesticWed>N</domesticWed><domesticThu>N</domesticThu><domesticFri>N</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0700</domesticArrivalTime><domesticEddate>2021-05-19T00:00:00</domesticEddate><domesticNum>7C171</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2021-04-23T00:00:00</domesticStdate><startcity>서울/김포</startcity><startcityCode>GMP</startcityCode><domesticSun>N</domesticSun><domesticMon>Y</domesticMon><domesticTue>N</domesticTue><domesticWed>N</domesticWed><domesticThu>N</domesticThu><domesticFri>N</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item><item><airlinehomepageUrl/><airlineKorean>제주항공</airlineKorean><airlineEnglish>JEJU AIR</airlineEnglish><arrivalcity>제주</arrivalcity><arrivalcityCode>CJU</arrivalcityCode><domesticArrivalTime>0700</domesticArrivalTime><domesticEddate>2021-06-15T00:00:00</domesticEddate><domesticNum>7C171</domesticNum><domesticStartTime>0600</domesticStartTime><domesticStdate>2021-05-20T00:00:00</domesticStdate><startcity>서울/김포</startcity><startcityCode>GMP</startcityCode><domesticSun>N</domesticSun><domesticMon>Y</domesticMon><domesticTue>N</domesticTue><domesticWed>N</domesticWed><domesticThu>N</domesticThu><domesticFri>N</domesticFri><domesticSat>N</domesticSat><flightPurpose>여객기</flightPurpose></item></items></body></response>

@@ -1,0 +1,33 @@
+{
+ "_meta": {
+  "name": "pax_D+7",
+  "endpoint": "https://apis.data.go.kr/B551178/daily-expect-passenger/info",
+  "params": {
+   "pageNo": 1,
+   "type": "json",
+   "dataType": "JSON",
+   "schStDate": "20261119",
+   "schEdDate": "20261119",
+   "schAirport": "PUS",
+   "numOfRows": 100
+  },
+  "http_status": 200,
+  "called_at_kst": "2026-11-12T18:38:44+09:00"
+ },
+ "response": {
+  "response": {
+   "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+   },
+   "body": {
+    "numOfRows": 100,
+    "pageNo": 1,
+    "totalCount": 0,
+    "items": {
+     "item": []
+    }
+   }
+  }
+ }
+}
