@@ -127,6 +127,13 @@ def write_csv(path, rows, fields):
     tmp.replace(path)
 
 
+IGNORE_ON_COMPARE = ("collected_at_kst", "first_seen_kst", "fgenTime", "fgentime")
+
+
+def _s(v):
+    return "" if v is None else str(v)
+
+
 def upsert(path, new_rows, key_fields, fields, sort_fields=None):
     """key 기준 중복 제거. 같은 key면 최신값으로 덮되 first_seen_kst는 유지. 반환: (추가, 갱신)."""
     rows = {tuple(r[k] for k in key_fields): r for r in read_csv(path)}
@@ -136,7 +143,8 @@ def upsert(path, new_rows, key_fields, fields, sort_fields=None):
         if k in rows:
             old = rows[k]
             r["first_seen_kst"] = old.get("first_seen_kst") or r.get("collected_at_kst")
-            if any(str(old.get(f, "")) != str(r.get(f, "")) for f in fields if f not in ("collected_at_kst", "first_seen_kst")):
+            # None(API의 null)과 ""는 같은 값으로 보고, 수집 시각·데이터 생성시간만 바뀐 건 '갱신'으로 세지 않음
+            if any(_s(old.get(f)) != _s(r.get(f)) for f in fields if f not in IGNORE_ON_COMPARE):
                 updated += 1
             rows[k] = {f: r.get(f, "") for f in fields}
         else:
