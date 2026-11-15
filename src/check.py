@@ -24,7 +24,9 @@ def main(days):
     hours = collections.defaultdict(set)
     for r in f:
         hours[r["searchday"]].add(r["scheduledatetime"][8:10])
-    print(f"\n[운항정보] 총 {len(f)}건 (코드쉐어 제외 {sum(r['codeshare'] != 'Y' for r in f)}건)")
+    # 실제 운항편 = 마스터 편명이 없거나 자기 자신인 행 (codeshare=Y 중에도 운항사 본편이 있음)
+    phys = [r for r in f if not r["masterflightid"] or r["masterflightid"] == r["flightid"]]
+    print(f"\n[운항정보] 총 {len(f)}건 (판매 편명 중복 제외 실제 운항편 {len(phys)}건)")
     print("  날짜      출발  도착  비어있는 시간대(06~22시)")
     for d in dates:
         if by[(d, "O")] or by[(d, "I")]:

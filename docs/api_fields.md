@@ -32,8 +32,9 @@
 | rmkKor | 상태: 출발·지연·도착·결항 등 | 출발 (D+6은 null) |
 | fgenTime | 데이터 생성시간 | |
 
+- `estimateddatetime`의 측정 시점(게이트 출발인지 이륙인지)은 명세에 정의 없음 → 확인 중 (docs/decisions.md).
 - 지연 = `estimateddatetime − scheduledatetime`. "실제"인지 "변경 예정"인지 같은 필드에 섞이므로, 지난 날짜(D-1~D-3)를 받아야 확정값.
-- 코드쉐어(`codeshare=Y`)는 같은 비행기 중복 → 분석 시 제외 예정.
+- 중복 제거: `masterflightid`가 비어 있거나 `flightid`와 같은 행만 실제 운항편. `codeshare=Y`에도 운항사 본편이 포함되므로 codeshare 값만으로 거르면 안 됨 (docs/decisions.md).
 - 그 외 오퍼레이션: `/info`(실시간, 날짜 지정 없음), `/detail`, `/taxfree` — 과거 조회가 안 되므로 쓰지 않음.
 
 ## 2. 시간대별 탑승승객 수 GW — info
