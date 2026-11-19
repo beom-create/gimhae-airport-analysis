@@ -1,0 +1,61 @@
+{
+ "_meta": {
+  "endpoint": "https://apis.data.go.kr/B551178/airport-process-time/v2",
+  "params": {
+   "cond[IATA_APCD::EQ]": "PUS"
+  },
+  "called_at_kst": "2026-11-19T23:03:30+09:00"
+ },
+ "items": [
+  {
+   "IATA_APCD": "CJJ",
+   "OPR_STS_CD": "0",
+   "PRC_HR": "23:00",
+   "STY_TCT_AVG_A": 0.0,
+   "STY_TCT_AVG_ALL": 180.0,
+   "STY_TCT_AVG_B": 0.0,
+   "STY_TCT_AVG_C": 180.0,
+   "STY_TCT_AVG_D": 0.0
+  },
+  {
+   "IATA_APCD": "CJU",
+   "OPR_STS_CD": "0",
+   "PRC_HR": "23:00",
+   "STY_TCT_AVG_A": 0.0,
+   "STY_TCT_AVG_ALL": 300.0,
+   "STY_TCT_AVG_B": 0.0,
+   "STY_TCT_AVG_C": 300.0,
+   "STY_TCT_AVG_D": 0.0
+  },
+  {
+   "IATA_APCD": "GMP",
+   "OPR_STS_CD": "0",
+   "PRC_HR": "23:00",
+   "STY_TCT_AVG_A": 0.0,
+   "STY_TCT_AVG_ALL": 180.0,
+   "STY_TCT_AVG_B": 0.0,
+   "STY_TCT_AVG_C": 180.0,
+   "STY_TCT_AVG_D": 0.0
+  },
+  {
+   "IATA_APCD": "PUS",
+   "OPR_STS_CD": "0",
+   "PRC_HR": "23:00",
+   "STY_TCT_AVG_A": 0.0,
+   "STY_TCT_AVG_ALL": 120.0,
+   "STY_TCT_AVG_B": 0.0,
+   "STY_TCT_AVG_C": 120.0,
+   "STY_TCT_AVG_D": 0.0
+  },
+  {
+   "IATA_APCD": "TAE",
+   "OPR_STS_CD": "0",
+   "PRC_HR": "23:00",
+   "STY_TCT_AVG_A": 0.0,
+   "STY_TCT_AVG_ALL": 180.0,
+   "STY_TCT_AVG_B": 0.0,
+   "STY_TCT_AVG_C": 180.0,
+   "STY_TCT_AVG_D": 0.0
+  }
+ ]
+}

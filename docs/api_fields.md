@@ -68,3 +68,16 @@
 
 - 관측소 후보: **253 김해시**, **159 부산** (가이드 첨부 지점표). 김해공항(부산 강서구)과의 거리로 하나를 고르거나 둘 다 받기 — 확인 필요.
 - `rn`: 253은 비 안 온 시간이 **빈값 ""**, 159는 **"0.0"** → 빈값을 0으로 볼지 전처리 규칙 필요. 겨울철 3시간 간격 표시 방식도 실제 강수일 데이터로 다시 확인.
+
+## 5. 공항 소요시간 정보 GW (2026-11-19 추가) — `B551178/airport-process-time/v2`
+
+요청: `serviceKey`, `pageNo`, `numOfRows`, `type`, `cond[IATA_APCD::EQ]`(PUS — 필터가 무시되고 5개 공항이 다 옴). **날짜 파라미터 없음 → 실시간만**
+필드: `IATA_APCD`, `PRC_HR`(처리시간 HH:MM), `OPR_STS_CD`(1 운영중/0 비운영), `STY_TCT_AVG_A~D`(1~4구간 평균 소요, 초), `STY_TCT_AVG_ALL`(전체, 초)
+- 구간: 1 체크인→신분확인, 2 신분확인→보안검색, 3 보안검색→탑승, 4 탑승→출발. 국내선만 (김포·제주는 `/v1`)
+- 샘플: `data/sample/proctime_PUS.json` (23:00 비운영, 3구간 120초)
+
+## 6. 공항 혼잡도 정보 GW (2026-11-19 추가) — `B551178/airport-congestion/v2`
+
+요청: `serviceKey`, `pageNo`(필수), `numOfRows`(필수), `type`. **날짜 파라미터 없음 → 실시간만**
+필드: `IATA_APCD`, `PRC_HR`, `CGDR_A~C_LVL`(1~3구간), `CGDR_ALL_LVL`(전체) — 1 원활, 2 보통, 3 혼잡, 4 매우혼잡 (0은 비운영 추정, 확인 필요)
+- 샘플: `data/sample/congestion_v2.json`

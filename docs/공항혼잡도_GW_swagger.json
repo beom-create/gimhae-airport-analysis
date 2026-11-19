@@ -1,0 +1,379 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "description": "한국공항공사(Korea Airports Cooperation)는 인천국제공항공사를 제외한 전국 14개의 공항을 운영하는 공공기관입니다. \\n\\n한국공항공사(KAC)가 운영하는 주요공항의 혼잡도에 대한 데이터를 제공합니다. 데이터의 소요시간은 총 3구간으로 이루어져 있으며 1구간은체크인-신분확인, 2구간은 신분확인-보안검색, 3구간은 보안검색-항공기 탑승으로 이루어져 있습니다.\\n\\n 해당 데이터는 김포공항, 김해공항, 제주공항, 대구공항, 청주공항 국내선의 혼잡도를 구간별로 제공하고 있으며, 네이버, 카카오T, 제주항공, 이스타 항 등 항공사에서 여객들을 위한 서비스로 소요시간 데이터를 활용하고 있습니다.\\n\\n 데이터에 대한 추가 요구사항이나 의견 있으시면 02-2660-4803로 문의주시기 바랍니다.",
+  "version": "1.0.0",
+  "title": "한국공항공사_공항 혼잡도 정보_GW"
+ },
+ "host": "apis.data.go.kr/B551178/airport-congestion",
+ "basePath": "",
+ "schemes": [
+  "https",
+  "http"
+ ],
+ "paths": {
+  "/v2": {
+   "get": {
+    "responses": {
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "결과코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "결과메세지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "item",
+             "properties": {
+              "IATA_APCD": {
+               "type": "string",
+               "description": "IATA 공항코드(김해 : PUS, 대구 : TAE, 청주 : CJJ)",
+               "properties": {}
+              },
+              "PRC_HR": {
+               "type": "string",
+               "description": "처리시간",
+               "properties": {}
+              },
+              "CGDR_A_LVL": {
+               "type": "string",
+               "description": "1구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)",
+               "properties": {}
+              },
+              "CGDR_B_LVL": {
+               "type": "string",
+               "description": "2구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)",
+               "properties": {}
+              },
+              "CGDR_C_LVL": {
+               "type": "string",
+               "description": "3구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)",
+               "properties": {}
+              },
+              "CGDR_ALL_LVL": {
+               "type": "string",
+               "description": "전체구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체 결과 수",
+           "properties": {}
+          },
+          "pageNo": {
+           "type": "string",
+           "description": "페이지번호",
+           "properties": {}
+          },
+          "numOfRows": {
+           "type": "string",
+           "description": "한 페이지 결과 수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     },
+     "": {
+      "description": ""
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "공항 혼잡도 정보(김해, 청주, 대구공항)",
+    "description": "김해, 청주, 대구공항의 혼잡도 정보를 제공합니다",
+    "operationId": "v2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json",
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "pageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "numOfRows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "type",
+     "description": "응답 형식(JSON & XML), 기본값 : XML (샘플 :xml)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  },
+  "/v1": {
+   "get": {
+    "responses": {
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultMsg": {
+           "type": "string",
+           "description": "결과메시지",
+           "properties": {}
+          },
+          "resultCode": {
+           "type": "string",
+           "description": "결과코드",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "string",
+           "description": "items",
+           "properties": {}
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체 결과 수",
+           "properties": {}
+          },
+          "pageNo": {
+           "type": "string",
+           "description": "페이지번호",
+           "properties": {}
+          },
+          "numOfRows": {
+           "type": "string",
+           "description": "한 페이지 결과 수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     },
+     "": {
+      "description": ""
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "공항 혼잡도 정보(김포, 제주공항)",
+    "description": "김포, 제공항의 혼잡도 정보를 제공합니다",
+    "operationId": "v1",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json",
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "pageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "numOfRows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "type",
+     "description": "응답 형식(JSON & XML), 기본값 : XML",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  }
+ },
+ "definitions": {
+  "v2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "결과코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "결과메세지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "item",
+         "properties": {
+          "IATA_APCD": {
+           "type": "string",
+           "description": "IATA 공항코드(김해 : PUS, 대구 : TAE, 청주 : CJJ)"
+          },
+          "PRC_HR": {
+           "type": "string",
+           "description": "처리시간"
+          },
+          "CGDR_A_LVL": {
+           "type": "string",
+           "description": "1구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)"
+          },
+          "CGDR_B_LVL": {
+           "type": "string",
+           "description": "2구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)"
+          },
+          "CGDR_C_LVL": {
+           "type": "string",
+           "description": "3구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)"
+          },
+          "CGDR_ALL_LVL": {
+           "type": "string",
+           "description": "전체구간 혼잡도 레벨(1:원활 , 2:보통, 3:혼잡, 4:매우혼잡)"
+          }
+         }
+        }
+       }
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체 결과 수"
+      },
+      "pageNo": {
+       "type": "string",
+       "description": "페이지번호"
+      },
+      "numOfRows": {
+       "type": "string",
+       "description": "한 페이지 결과 수"
+      }
+     }
+    }
+   }
+  },
+  "v1_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultMsg": {
+       "type": "string",
+       "description": "결과메시지"
+      },
+      "resultCode": {
+       "type": "string",
+       "description": "결과코드"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "string",
+       "description": "items"
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체 결과 수"
+      },
+      "pageNo": {
+       "type": "string",
+       "description": "페이지번호"
+      },
+      "numOfRows": {
+       "type": "string",
+       "description": "한 페이지 결과 수"
+      }
+     }
+    }
+   }
+  }
+ }
+}

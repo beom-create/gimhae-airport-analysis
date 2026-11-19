@@ -1,0 +1,49 @@
+{
+ "_meta": {
+  "endpoint": "https://apis.data.go.kr/B551178/airport-congestion/v2",
+  "params": {},
+  "called_at_kst": "2026-11-19T23:03:30+09:00"
+ },
+ "items": [
+  {
+   "IATA_APCD": "GMP",
+   "PRC_HR": "23:00",
+   "CGDR_A_LVL": 0.0,
+   "CGDR_B_LVL": 0.0,
+   "CGDR_C_LVL": 1.0,
+   "CGDR_ALL_LVL": 0.0
+  },
+  {
+   "IATA_APCD": "PUS",
+   "PRC_HR": "23:00",
+   "CGDR_A_LVL": 0.0,
+   "CGDR_B_LVL": 0.0,
+   "CGDR_C_LVL": 1.0,
+   "CGDR_ALL_LVL": 0.0
+  },
+  {
+   "IATA_APCD": "TAE",
+   "PRC_HR": "23:00",
+   "CGDR_A_LVL": 0.0,
+   "CGDR_B_LVL": 0.0,
+   "CGDR_C_LVL": 1.0,
+   "CGDR_ALL_LVL": 0.0
+  },
+  {
+   "IATA_APCD": "CJJ",
+   "PRC_HR": "23:00",
+   "CGDR_A_LVL": 0.0,
+   "CGDR_B_LVL": 0.0,
+   "CGDR_C_LVL": 1.0,
+   "CGDR_ALL_LVL": 0.0
+  },
+  {
+   "IATA_APCD": "CJU",
+   "PRC_HR": "23:00",
+   "CGDR_A_LVL": 0.0,
+   "CGDR_B_LVL": 0.0,
+   "CGDR_C_LVL": 1.0,
+   "CGDR_ALL_LVL": 0.0
+  }
+ ]
+}

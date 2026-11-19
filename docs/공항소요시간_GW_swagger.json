@@ -1,0 +1,491 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "description": "한국공항공사(Korea Airports Cooperation)는 인천국제공항공사를 제외한 전국 14개의 공항을 운영하는 공공기관입니다. 한국공항공사(KAC)가 운영하는 주요공항의 대기(소요)시간에 대한 데이터를 제공합니다. \\n\\n데이터의 소요시간은 총 4구간으로 이루어져 있으며 1구간은체크인-신분확인, 2구간은 신분확인-보안검색, 3구간은 보안검색-항공기 탑승, 4구간은 항공기 탑승-항공기 출발 구간으로 이루어져 있습니다.\\n\\n해당 데이터는 김포공항, 김해공항, 제주공항, 대구공항, 청주공항 국내선의 소요시간을 구간별로 제공하고 있으며, 네이버, 카카오T, 제주항공 등 항공사에서 여객들을 위한 서비스로 소요시간 데이터를 활용하고 있습니다. 데이터에 대한 추가 요구사항이나 의견 있으시면 02-2660-4803로 문의주시기 바랍니다.",
+  "version": "1.0.0",
+  "title": "한국공항공사_공항 소요시간 정보_GW"
+ },
+ "host": "apis.data.go.kr/B551178/airport-process-time",
+ "basePath": "",
+ "schemes": [
+  "https",
+  "http"
+ ],
+ "paths": {
+  "/v2": {
+   "get": {
+    "responses": {
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "결과코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "결과메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "totalCount": {
+           "type": "string",
+           "description": "전체 결과 수",
+           "properties": {}
+          },
+          "pageNo": {
+           "type": "string",
+           "description": "페이지번호",
+           "properties": {}
+          },
+          "numOfRows": {
+           "type": "string",
+           "description": "한 페이지 결과 수",
+           "properties": {}
+          },
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "item",
+             "properties": {
+              "IATA_APCD": {
+               "type": "string",
+               "description": "IATA 공항코드(김해 : PUS, 대구 : TAE, 청주 : CJJ)",
+               "properties": {}
+              },
+              "PRC_HR": {
+               "type": "string",
+               "description": "처리시간",
+               "properties": {}
+              },
+              "OPR_STS_CD": {
+               "type": "string",
+               "description": "운영상태코드(1:운영중 , 0 : 비 운영중)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_A": {
+               "type": "string",
+               "description": "1구간 소요시간 평균(단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_B": {
+               "type": "string",
+               "description": "2구간 소요시간 평균(단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_C": {
+               "type": "string",
+               "description": "3구간 소요시간 평균(단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_D": {
+               "type": "string",
+               "description": "4구간 소요시간 평균(단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_ALL": {
+               "type": "string",
+               "description": "전체 구간 소요시간 평균(단위 : 초)",
+               "properties": {}
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     },
+     "": {
+      "description": ""
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "공항 소요시간 정보(김해,대구,청주공항)",
+    "description": "한국공항공사의 각 공항 내 구간 별 소요시간 정보를 제공(김해,대구,청주공항)",
+    "operationId": "v2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json",
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "pageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "numOfRows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "type",
+     "description": "응답 형식(JSON & XML), 기본값 : XML (샘플 : xml)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "cond[IATA_APCD::EQ]",
+     "description": "IATA 공항코드(김해 : PUS, 대구 : TAE, 청주 : CJJ - 대문자 입력) (샘플 : PUS)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  },
+  "/v1": {
+   "get": {
+    "responses": {
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "결과코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "결과메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "item",
+             "properties": {
+              "IATA_APCD": {
+               "type": "string",
+               "description": "IATA공항코드",
+               "properties": {}
+              },
+              "PRC_HR": {
+               "type": "string",
+               "description": "처리시간",
+               "properties": {}
+              },
+              "OPR_STS_CD": {
+               "type": "string",
+               "description": "운영상태코드(1:운영중 , 0 : 비 운영중)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_A": {
+               "type": "string",
+               "description": "1구간 소요시간(체류시간) 평균 (단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_B": {
+               "type": "string",
+               "description": "2구간 소요시간(체류시간) 평균 (단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_C": {
+               "type": "string",
+               "description": "3구간 소요시간(체류시간) 평균 (단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_D": {
+               "type": "string",
+               "description": "4구간 소요시간(체류시간) 평균 (단위 : 초)",
+               "properties": {}
+              },
+              "STY_TCT_AVG_ALL": {
+               "type": "string",
+               "description": "총 소요시간(체류시간) 평균 (단위 : 초)",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체 결과 수",
+           "properties": {}
+          },
+          "pageNo": {
+           "type": "string",
+           "description": "페이지번호",
+           "properties": {}
+          },
+          "numOfRows": {
+           "type": "string",
+           "description": "한 페이지 결과 수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     },
+     "": {
+      "description": ""
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "공항 소요시간 정보(김포, 제주공항)",
+    "description": "한국공항공사의 각 공항 내 구간 별 소요시간 정보를 제공(김포, 제주공항)",
+    "operationId": "v1",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json",
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "pageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "numOfRows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "type",
+     "description": "응답 형식(JSON & XML), 기본값 : XML (샘플 :xml)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  }
+ },
+ "definitions": {
+  "v2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "결과코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "결과메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "totalCount": {
+       "type": "string",
+       "description": "전체 결과 수"
+      },
+      "pageNo": {
+       "type": "string",
+       "description": "페이지번호"
+      },
+      "numOfRows": {
+       "type": "string",
+       "description": "한 페이지 결과 수"
+      },
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "item",
+         "properties": {
+          "IATA_APCD": {
+           "type": "string",
+           "description": "IATA 공항코드(김해 : PUS, 대구 : TAE, 청주 : CJJ)"
+          },
+          "PRC_HR": {
+           "type": "string",
+           "description": "처리시간"
+          },
+          "OPR_STS_CD": {
+           "type": "string",
+           "description": "운영상태코드(1:운영중 , 0 : 비 운영중)"
+          },
+          "STY_TCT_AVG_A": {
+           "type": "string",
+           "description": "1구간 소요시간 평균(단위 : 초)"
+          },
+          "STY_TCT_AVG_B": {
+           "type": "string",
+           "description": "2구간 소요시간 평균(단위 : 초)"
+          },
+          "STY_TCT_AVG_C": {
+           "type": "string",
+           "description": "3구간 소요시간 평균(단위 : 초)"
+          },
+          "STY_TCT_AVG_D": {
+           "type": "string",
+           "description": "4구간 소요시간 평균(단위 : 초)"
+          },
+          "STY_TCT_AVG_ALL": {
+           "type": "string",
+           "description": "전체 구간 소요시간 평균(단위 : 초)"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "v1_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "결과코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "결과메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "item",
+         "properties": {
+          "IATA_APCD": {
+           "type": "string",
+           "description": "IATA공항코드"
+          },
+          "PRC_HR": {
+           "type": "string",
+           "description": "처리시간"
+          },
+          "OPR_STS_CD": {
+           "type": "string",
+           "description": "운영상태코드(1:운영중 , 0 : 비 운영중)"
+          },
+          "STY_TCT_AVG_A": {
+           "type": "string",
+           "description": "1구간 소요시간(체류시간) 평균 (단위 : 초)"
+          },
+          "STY_TCT_AVG_B": {
+           "type": "string",
+           "description": "2구간 소요시간(체류시간) 평균 (단위 : 초)"
+          },
+          "STY_TCT_AVG_C": {
+           "type": "string",
+           "description": "3구간 소요시간(체류시간) 평균 (단위 : 초)"
+          },
+          "STY_TCT_AVG_D": {
+           "type": "string",
+           "description": "4구간 소요시간(체류시간) 평균 (단위 : 초)"
+          },
+          "STY_TCT_AVG_ALL": {
+           "type": "string",
+           "description": "총 소요시간(체류시간) 평균 (단위 : 초)"
+          }
+         }
+        }
+       }
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체 결과 수"
+      },
+      "pageNo": {
+       "type": "string",
+       "description": "페이지번호"
+      },
+      "numOfRows": {
+       "type": "string",
+       "description": "한 페이지 결과 수"
+      }
+     }
+    }
+   }
+  }
+ }
+}

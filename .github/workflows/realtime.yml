@@ -1,0 +1,44 @@
+name: realtime
+
+# 공항 소요시간·혼잡도 API는 과거 조회가 안 되는 실시간 전용 → 15분마다 스냅샷 수집
+# 하루 호출 수: 96회 × 2 API = 192회 (각 API 개발계정 한도 5,000)
+# 주의: GitHub 예약 실행은 붐비면 늦어지거나 건너뛸 수 있음 → check.py에서 빈 시간대 확인
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: realtime
+  cancel-in-progress: false
+
+jobs:
+  realtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Collect
+        env:
+          TZ: Asia/Seoul
+          DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+        run: python src/collect_realtime.py
+
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/realtime/ data/logs/
+          git diff --cached --quiet && exit 0
+          git commit -m "data: realtime $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+          # collect 워크플로와 동시에 push할 수 있어 최대 3번 재시도
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep $((i * 5)); done
+          exit 1
