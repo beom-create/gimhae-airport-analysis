@@ -1,0 +1,32 @@
+{
+ "run_at_kst": "2026-11-19T22:17:07+09:00",
+ "rows": 1537,
+ "period": "2026-11-09 ~ 2026-11-18 (10일)",
+ "train": "1232편 (2026-11-09 ~ 2026-11-16), 지연 69편",
+ "test": "305편 (2026-11-17 ~ 2026-11-18), 지연 16편",
+ "delay_rate": 0.0553,
+ "threshold": {
+  "국내": 30,
+  "국제": 60
+ },
+ "features_after": {
+  "num": [
+   "n_codeshare",
+   "sched_arr_same_hour",
+   "exp_pax_line_hour",
+   "exp_pax_total_hour",
+   "ta",
+   "ws",
+   "vs",
+   "hm"
+  ],
+  "cat": [
+   "line",
+   "airline",
+   "dest",
+   "time_band",
+   "dow_name",
+   "rain_3h_state"
+  ]
+ }
+}

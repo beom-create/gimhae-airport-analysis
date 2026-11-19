@@ -1,0 +1,8 @@
+예정 출발 시각(sched_hour) → 시간대 구간(time_band) 범주로 변환
+요일 숫자(dow) → 요일 범주(dow_name)로 변환
+직전 3시간 강수량·결측 지표 → 강수 상태 3분류(비/없음/기록결측)로 통합
+is_holiday: 학습 데이터에서 값이 하나뿐(상수) → 제외
+sched_dep_same_hour ↔ exp_pax_total_hour 상관 0.94 > 0.8 → 중요도 낮은 sched_dep_same_hour 제외
+is_weekend: 조정 전 RF 중요도 0.7% < 2% → 제외
+airline: 학습 데이터 30편 미만 14개 범주 → '기타'로 묶음
+dest: 학습 데이터 30편 미만 35개 범주 → '기타'로 묶음

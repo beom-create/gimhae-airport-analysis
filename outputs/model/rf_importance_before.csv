@@ -1,0 +1,19 @@
+﻿feature,feature_ko,importance_share_pct
+airline,항공사,16.89
+dest,목적지,12.57
+exp_pax_line_hour,예상 탑승객 수(같은 시각대·국내/국제),9.38
+vs,시정(1시간 전),6.76
+ta,기온(1시간 전),6.58
+exp_pax_total_hour,예상 탑승객 수(같은 시각대 전체),6.16
+hm,습도(1시간 전),5.89
+sched_arr_same_hour,같은 시각대 예정 도착편 수,5.83
+ws,풍속(1시간 전),5.7
+sched_hour,예정 출발 시각(시),5.19
+sched_dep_same_hour,같은 시각대 예정 출발편 수,4.9
+dow,요일(숫자),3.95
+line,국내/국제,3.59
+n_codeshare,코드쉐어 판매 편명 수,3.13
+rain_3h_mm,직전 3시간 강수량,1.73
+rain_3h_missing,강수 기록 결측,1.04
+is_weekend,주말 여부,0.72
+is_holiday,공휴일 여부,0.0
