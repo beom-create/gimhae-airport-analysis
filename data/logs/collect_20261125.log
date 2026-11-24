@@ -1,0 +1,2 @@
+2026-11-25T00:33:12+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 00:30 {'OPR_STS_CD': '0', 'STY_TCT_AVG_A': 0.0, 'STY_TCT_AVG_B': 0.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 0.0, 'STY_TCT_AVG_ALL': 120.0}
+2026-11-25T00:33:13+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 00:30 {'CGDR_A_LVL': 0.0, 'CGDR_B_LVL': 0.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 0.0}
