@@ -60,3 +60,5 @@
 2026-11-26T13:35:26+09:00 [schedule] taxfree-int: 받음 2867, 종료·삭제 제외 2554, 유지 313 (호출 29)
 2026-11-26T13:35:26+09:00 [schedule] 저장 schedule.csv: 484건, 호출 41
 2026-11-26T13:35:26+09:00 [all] 완료, 실패: 없음
+2026-11-26T14:02:16+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 14:00 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 330.0, 'STY_TCT_AVG_B': 201.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1200.0, 'STY_TCT_AVG_ALL': 651.0}
+2026-11-26T14:02:17+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 14:00 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
