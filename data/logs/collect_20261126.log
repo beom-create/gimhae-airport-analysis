@@ -66,3 +66,5 @@
 2026-11-26T15:11:01+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 15:10 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 1.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 1.0}
 2026-11-26T16:41:32+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 16:40 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 282.0, 'STY_TCT_AVG_B': 744.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 987.0, 'STY_TCT_AVG_ALL': 1146.0}
 2026-11-26T16:41:33+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 16:40 {'CGDR_A_LVL': 1.0, 'CGDR_B_LVL': 4.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-26T17:50:15+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 17:45 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 142.0, 'STY_TCT_AVG_B': 250.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 2012.0, 'STY_TCT_AVG_ALL': 512.0}
+2026-11-26T17:50:16+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 17:45 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
