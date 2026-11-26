@@ -41,11 +41,12 @@ def load_keys():
     return kac, kma
 
 
-def log(msg):
+def log(msg, prefix="collect"):
+    """워크플로마다 로그 파일을 나눔(prefix) → 두 워크플로가 같은 파일에 써서 push 때 충돌하는 것을 막음."""
     LOGS.mkdir(parents=True, exist_ok=True)
     line = f"{now_kst().isoformat(timespec='seconds')} {msg}"
     print(line)
-    with open(LOGS / f"collect_{ymd(now_kst())}.log", "a", encoding="utf-8") as f:
+    with open(LOGS / f"{prefix}_{ymd(now_kst())}.log", "a", encoding="utf-8") as f:
         f.write(line + "\n")
 
 

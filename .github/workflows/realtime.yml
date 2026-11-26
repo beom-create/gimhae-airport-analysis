@@ -1,11 +1,13 @@
 name: realtime
 
-# 공항 소요시간·혼잡도 API는 과거 조회가 안 되는 실시간 전용 → 15분마다 스냅샷 수집
-# 하루 호출 수: 96회 × 2 API = 192회 (각 API 개발계정 한도 5,000)
-# 주의: GitHub 예약 실행은 붐비면 늦어지거나 건너뛸 수 있음 → check.py에서 빈 시간대 확인
+# 공항 소요시간·혼잡도 API는 과거 조회가 안 되는 실시간 전용 → 15분 간격 스냅샷이 필요
+# GitHub 예약 실행은 15분 주기로 걸어도 실제로는 약 65분 간격으로 밀려서(11/20~26 관측),
+# 예약은 매시 정각 1회만 두고, 실행되면 job 안에서 15분 간격으로 4번 수집한 뒤 한 번에 커밋한다.
+# 하루 호출 수: 최대 24회 × 4번 × 2 API = 192회 (각 API 개발계정 한도 5,000)
+# 중복 PRC_HR(같은 공항·날짜·처리시간)은 collect_realtime.py가 걸러냄
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "0 * * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -13,12 +15,12 @@ permissions:
 
 concurrency:
   group: realtime
-  cancel-in-progress: false
+  cancel-in-progress: false   # 앞 실행이 밀려 겹치면 기다렸다가 실행 (수집 중인 실행을 끊지 않음)
 
 jobs:
   realtime:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v5
 
@@ -26,11 +28,19 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Collect
+      - name: Collect 4 times, 15 minutes apart
         env:
           TZ: Asia/Seoul
           DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
-        run: python src/collect_realtime.py
+        run: |
+          fails=0
+          for i in 1 2 3 4; do
+            echo "── 수집 $i/4 $(date +'%H:%M:%S')"
+            python src/collect_realtime.py || fails=$((fails + 1))   # 한 번 실패해도 나머지 수집은 계속
+            if [ "$i" -lt 4 ]; then sleep 900; fi
+          done
+          echo "실패 ${fails}/4"
+          echo "fails=${fails}" >> "$GITHUB_ENV"
 
       - name: Commit data
         run: |
@@ -38,7 +48,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/realtime/ data/logs/
           git diff --cached --quiet && exit 0
-          git commit -m "data: realtime $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
-          # collect 워크플로와 동시에 push할 수 있어 최대 3번 재시도
+          git commit -m "data: realtime ×4 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+          # 45분 동안 collect 워크플로가 먼저 push했을 수 있어 최대 3번 재시도
           for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep $((i * 5)); done
           exit 1
+
+      - name: Fail if every collection failed
+        if: env.fails == '4'
+        run: exit 1

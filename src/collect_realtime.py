@@ -48,14 +48,14 @@ def run():
             items, _ = items_of(call(s["url"], {**s["params"], "type": "json", "pageNo": 1, "numOfRows": 50}, kac))
         except Exception as e:
             failed.append(name)
-            log(f"[realtime] 실패 {name}: {e}")
+            log(f"[realtime] 실패 {name}: {e}", prefix="realtime")
             continue
         rows = [{**it, "date": prc_date(it.get("PRC_HR"), now), "collected_at_kst": stamp} for it in items]
         fields = KEY + s["fields"] + ["collected_at_kst", "first_seen_kst"]
         added, updated = upsert(OUT_DIR / f"{name}.csv", rows, KEY, fields, sort_fields=["date", "PRC_HR", "IATA_APCD"])
         pus = next((r for r in rows if r.get("IATA_APCD") == "PUS"), {})
         log(f"[realtime] {name}: {len(items)}건, 신규 {added}, 갱신 {updated} | PUS {pus.get('PRC_HR')} "
-            f"{ {k: pus.get(k) for k in s['fields']} }")
+            f"{ {k: pus.get(k) for k in s['fields']} }", prefix="realtime")
     return failed
 
 
