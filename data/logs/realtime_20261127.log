@@ -1,0 +1,8 @@
+2026-11-27T07:05:32+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 07:00 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 869.0, 'STY_TCT_AVG_B': 685.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1476.0, 'STY_TCT_AVG_ALL': 1674.0}
+2026-11-27T07:05:33+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 07:00 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 4.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 3.0}
+2026-11-27T07:20:34+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 07:20 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 952.0, 'STY_TCT_AVG_B': 215.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1407.0, 'STY_TCT_AVG_ALL': 1287.0}
+2026-11-27T07:20:35+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 07:20 {'CGDR_A_LVL': 3.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-27T07:35:36+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 07:30 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 1161.0, 'STY_TCT_AVG_B': 118.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1270.0, 'STY_TCT_AVG_ALL': 1399.0}
+2026-11-27T07:35:36+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 07:30 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 1.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-27T07:50:37+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 07:50 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 520.0, 'STY_TCT_AVG_B': 315.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1270.0, 'STY_TCT_AVG_ALL': 955.0}
+2026-11-27T07:50:38+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 07:50 {'CGDR_A_LVL': 1.0, 'CGDR_B_LVL': 3.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
