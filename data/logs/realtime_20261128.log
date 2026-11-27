@@ -2,3 +2,11 @@
 2026-11-28T00:08:48+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 00:05 {'CGDR_A_LVL': 0.0, 'CGDR_B_LVL': 0.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 0.0}
 2026-11-28T00:23:49+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 00:20 {'OPR_STS_CD': '0', 'STY_TCT_AVG_A': 0.0, 'STY_TCT_AVG_B': 0.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 0.0, 'STY_TCT_AVG_ALL': 120.0}
 2026-11-28T00:23:50+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 00:20 {'CGDR_A_LVL': 0.0, 'CGDR_B_LVL': 0.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 0.0}
+2026-11-28T08:10:59+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 08:05 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 319.0, 'STY_TCT_AVG_B': 132.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1632.0, 'STY_TCT_AVG_ALL': 571.0}
+2026-11-28T08:10:59+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 08:10 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-28T08:26:00+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 08:25 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 1099.0, 'STY_TCT_AVG_B': 132.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1559.0, 'STY_TCT_AVG_ALL': 1351.0}
+2026-11-28T08:26:01+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 08:25 {'CGDR_A_LVL': 3.0, 'CGDR_B_LVL': 1.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-28T08:41:02+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 08:40 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 1540.0, 'STY_TCT_AVG_B': 315.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1559.0, 'STY_TCT_AVG_ALL': 1975.0}
+2026-11-28T08:41:02+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 08:40 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 3.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-28T08:56:03+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 08:50 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 1483.0, 'STY_TCT_AVG_B': 168.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 984.0, 'STY_TCT_AVG_ALL': 1771.0}
+2026-11-28T08:56:04+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 08:55 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 1.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 1.0}
