@@ -6,3 +6,11 @@
 2026-11-27T07:35:36+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 07:30 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 1.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
 2026-11-27T07:50:37+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 07:50 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 520.0, 'STY_TCT_AVG_B': 315.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1270.0, 'STY_TCT_AVG_ALL': 955.0}
 2026-11-27T07:50:38+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 07:50 {'CGDR_A_LVL': 1.0, 'CGDR_B_LVL': 3.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-27T13:44:31+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 13:40 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 755.0, 'STY_TCT_AVG_B': 205.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 993.0, 'STY_TCT_AVG_ALL': 1080.0}
+2026-11-27T13:44:32+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 13:40 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-27T13:59:33+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 13:55 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 1526.0, 'STY_TCT_AVG_B': 215.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 993.0, 'STY_TCT_AVG_ALL': 1861.0}
+2026-11-27T13:59:33+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 13:55 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-27T14:14:34+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 14:10 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 1163.0, 'STY_TCT_AVG_B': 280.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1212.0, 'STY_TCT_AVG_ALL': 1563.0}
+2026-11-27T14:14:35+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 14:10 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
+2026-11-27T14:29:36+09:00 [realtime] process_time: 5건, 신규 5, 갱신 0 | PUS 14:25 {'OPR_STS_CD': '1', 'STY_TCT_AVG_A': 478.0, 'STY_TCT_AVG_B': 187.0, 'STY_TCT_AVG_C': 120.0, 'STY_TCT_AVG_D': 1212.0, 'STY_TCT_AVG_ALL': 785.0}
+2026-11-27T14:29:37+09:00 [realtime] congestion: 5건, 신규 5, 갱신 0 | PUS 14:25 {'CGDR_A_LVL': 2.0, 'CGDR_B_LVL': 2.0, 'CGDR_C_LVL': 1.0, 'CGDR_ALL_LVL': 2.0}
